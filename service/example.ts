@@ -1,11 +1,13 @@
 import { ActionTable } from "./machine";
 interface example {
   initialState: string;
+  stateList: string[];
   actionTable: ActionTable;
 }
 
 export const repeatZeroAndOne: example = {
   initialState: "a",
+  stateList: ["a", "b"],
   actionTable: [
     {
       inState: "a",
@@ -26,6 +28,7 @@ export const repeatZeroAndOne: example = {
 
 export const binaryIncrement: example = {
   initialState: "right",
+  stateList: ["right", "carry", "done"],
   actionTable: [
     {
       inState: "right",
@@ -61,6 +64,16 @@ export const binaryIncrement: example = {
 
 export const binaryPalindlom: example = {
   initialState: "start",
+  stateList: [
+    "start",
+    "haveZero",
+    "haveOne",
+    "matchZero",
+    "matchOne",
+    "back",
+    "true",
+    "false",
+  ],
   actionTable: [
     {
       inState: "start",

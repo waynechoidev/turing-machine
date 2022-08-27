@@ -13,7 +13,7 @@ export class TuringMachine {
   private _actionTable?: ActionTable;
   private _state?: string;
   private _tape?: string[];
-  private _idx: number = 20;
+  private _idx: number = 10;
 
   private _updateState: Function;
   private _updateIdx: Function;
@@ -32,9 +32,10 @@ export class TuringMachine {
   }
 
   init(initialTape: string[], actionTable: ActionTable, initialState: string) {
-    this._tape = [...Array(20).fill(""), ...initialTape, ...Array(20).fill("")];
+    this._tape = [...Array(10).fill(""), ...initialTape, ...Array(50).fill("")];
     this._actionTable = actionTable;
     this._state = initialState;
+    this._idx = 10;
     this.update();
   }
 
@@ -46,7 +47,7 @@ export class TuringMachine {
       const targetIdx = this._actionTable.findIndex((e) => {
         return e.inState === this._state && e.reading === cell;
       });
-      if (targetIdx != -1) {
+      if (targetIdx != -1 && this._tape[this._idx] != undefined) {
         const target = this._actionTable[targetIdx];
 
         let newIdx: number = this._idx;
@@ -61,7 +62,8 @@ export class TuringMachine {
         }
 
         if (target.move === "<" && this._idx > 0) newIdx--;
-        else if (target.move === ">") newIdx++;
+        else if (target.move === ">" && this._idx < this._tape.length) newIdx++;
+
         this._idx = newIdx;
       } else {
         this._switch = false;
@@ -75,6 +77,9 @@ export class TuringMachine {
 
   turnOn() {
     this._switch = true;
+  }
+  turnOff() {
+    this._switch = false;
   }
   checkSwitch() {
     return this._switch == true;
