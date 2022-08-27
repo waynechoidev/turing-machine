@@ -169,18 +169,21 @@
     flex-direction: column;
   }
   .processor_wrapper {
-    width: 100%;
+    width: 95%;
     order: 1;
+    margin: 0 auto;
   }
   .control {
-    width: 100%;
+    width: 95%;
     padding: 0;
     order: 2;
+    margin: 0 auto;
   }
   .setup_wrapper {
-    width: 100%;
+    width: 95%;
     padding: 0;
     order: 3;
+    margin: 0 auto;
   }
   .table_wrapper {
     width: 100%;
