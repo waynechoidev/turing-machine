@@ -2,13 +2,13 @@ import type { NextPage } from "next";
 import styles from "../styles/Home.module.css";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Control from "../components/control";
-import * as buttons from "../service/buttons";
 import * as machines from "../service/example";
 import { UniversalTuringMachine } from "../service/universal_machine";
 import Tape from "../components/tape";
 import Setup from "../components/setup";
 import Processor from "../components/processor";
 import Table from "../components/table";
+import { reset } from "../service/buttons";
 
 const useIsomorphicLayoutEffect =
   typeof window !== "undefined" ? useLayoutEffect : useEffect;
@@ -46,7 +46,7 @@ const Home: NextPage = () => {
   }, [label]);
 
   useEffect(() => {
-    buttons.reset(universalMachine, machine, input);
+    reset(universalMachine, machine, input);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input, machine, universalMachine]);
 
@@ -84,9 +84,6 @@ const Home: NextPage = () => {
           machine={machine}
           power={power}
           input={input}
-          play={buttons.play}
-          pause={buttons.pause}
-          reset={buttons.reset}
         />
       </div>
 

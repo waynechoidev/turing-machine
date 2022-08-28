@@ -9,7 +9,7 @@ export async function play(utm: UniversalTuringMachine) {
     else clearInterval(timer);
   }, 1000);
 }
-export async function pause(utm: UniversalTuringMachine) {
+export function pause(utm: UniversalTuringMachine) {
   utm.turnOff();
 }
 export function reset(
@@ -19,4 +19,8 @@ export function reset(
 ) {
   utm.turnOff();
   utm.init(input.split(""), machine.actionTable, machine.initialState);
+}
+export function step(utm: UniversalTuringMachine) {
+  utm.turnOff();
+  utm.step();
 }

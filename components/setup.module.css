@@ -17,7 +17,7 @@
   margin: 0;
 }
 .input {
-  width: calc(100% - 60px);
+  width: calc(100% - 70px);
 }
 
 .machine_option {
@@ -45,5 +45,11 @@
     padding: 0;
     order: 3;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .machine_item {
+    width: 100%;
   }
 }
