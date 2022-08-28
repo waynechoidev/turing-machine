@@ -29,6 +29,7 @@
 .machine_item {
   margin-left: 20px;
   width: 100%;
+  cursor: pointer;
 }
 
 .radio {
@@ -37,6 +38,7 @@
 
 .label {
   font-size: 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {

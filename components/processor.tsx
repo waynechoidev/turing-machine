@@ -15,7 +15,7 @@ export default function Processor({ machine, state }: IProps) {
         <Image src="/up.svg" width="50px" height="50px" alt="arrow" />
       </div>
       <div className={styles.processor}>
-        <h2>States</h2>
+        <h2>Machine States</h2>
         <div className={styles.states}>
           {machine.stateList?.map((i, key) => (
             <li key={key} className={i == state ? styles.highlited : ""}>

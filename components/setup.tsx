@@ -14,7 +14,7 @@ export default function Setup({ input, label, setInput, setLabel }: IProps) {
     <section className={styles.container}>
       <div className={styles.setup}>
         <div>
-          Input:{" "}
+          <b>Input: </b>
           <input
             className={styles.input}
             value={input}
@@ -23,10 +23,16 @@ export default function Setup({ input, label, setInput, setLabel }: IProps) {
             }}
           ></input>
         </div>
-        <p>Machine</p>
+        <b>Choose Machine</b>
         <div className={styles.machine_option}>
           {machineNameList.map((i, key) => (
-            <span key={key} className={styles.machine_item}>
+            <span
+              key={key}
+              className={styles.machine_item}
+              onClick={() => {
+                setLabel(i);
+              }}
+            >
               <input
                 className={styles.radio}
                 type="radio"
