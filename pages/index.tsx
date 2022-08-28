@@ -26,6 +26,7 @@ const Home: NextPage = () => {
   const [machine, setMachine] = useState(machines.binaryPalindlom);
 
   const slideRef = useRef<HTMLDivElement>(null);
+  const date = new Date();
   const cellWidth = 100;
 
   useEffect(() => {
@@ -68,9 +69,7 @@ const Home: NextPage = () => {
       <header>
         <h1>Turing Machine Simulator</h1>
       </header>
-
       <Tape slideRef={slideRef} tape={tape} />
-
       <div className={styles.status}>
         <Setup
           input={input}
@@ -86,8 +85,11 @@ const Home: NextPage = () => {
           input={input}
         />
       </div>
-
       <Table machine={machine} />
+
+      <footer className={styles.footer}>
+        (C) {date.getFullYear()}. radicalDilettante. All rights reserved.
+      </footer>
     </div>
   );
 };
