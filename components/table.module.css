@@ -1,0 +1,30 @@
+.container {
+  padding: 0 20px;
+  overflow-x: scroll;
+  margin: 10px;
+}
+.table {
+  width: 100%;
+  min-width: 600px;
+  margin: 0 auto;
+  border: 2px #454545 solid;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 20px;
+  padding: 10px;
+}
+.tr {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.tr span {
+  flex: 1;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}

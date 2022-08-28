@@ -9,33 +9,36 @@ interface ActionTableItem {
 
 export type ActionTable = ActionTableItem[];
 
-export class TuringMachine {
+export class UniversalTuringMachine {
   private _actionTable?: ActionTable;
   private _state?: string;
   private _tape?: string[];
-  private _idx: number = 10;
+  private _idx: number = 50;
 
   private _updateState: Function;
   private _updateIdx: Function;
   private _updateTape: Function;
 
   private _switch = false;
+  private _updateSwitch: Function;
 
   constructor(
+    updateSwitch: Function,
     updateState: Function,
     updateIdx: Function,
     updateTape: Function
   ) {
+    this._updateSwitch = updateSwitch;
     this._updateState = updateState;
     this._updateIdx = updateIdx;
     this._updateTape = updateTape;
   }
 
   init(initialTape: string[], actionTable: ActionTable, initialState: string) {
-    this._tape = [...Array(10).fill(""), ...initialTape, ...Array(50).fill("")];
+    this._tape = [...Array(50).fill(""), ...initialTape, ...Array(50).fill("")];
     this._actionTable = actionTable;
     this._state = initialState;
-    this._idx = 10;
+    this._idx = 50;
     this.update();
   }
 
@@ -66,10 +69,10 @@ export class TuringMachine {
 
         this._idx = newIdx;
       } else {
-        this._switch = false;
+        this.turnOff();
       }
     } else {
-      this._switch = false;
+      this.turnOff();
       alert("Please fill the turing machine");
     }
     this.update();
@@ -77,12 +80,14 @@ export class TuringMachine {
 
   turnOn() {
     this._switch = true;
+    this._updateSwitch(true);
   }
   turnOff() {
     this._switch = false;
+    this._updateSwitch(false);
   }
   checkSwitch() {
-    return this._switch == true;
+    return this._switch;
   }
   update() {
     this._updateState(this._state);

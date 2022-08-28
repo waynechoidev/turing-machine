@@ -1,11 +1,15 @@
-import { ActionTable } from "./machine";
-interface example {
+import { ActionTable } from "./universal_machine";
+export interface TuringMachine {
   initialState: string;
   stateList: string[];
   actionTable: ActionTable;
 }
+export type itemType =
+  | "Repeat Binary"
+  | "Binary Increment"
+  | "Binary Palindlom";
 
-export const repeatZeroAndOne: example = {
+export const repeatZeroAndOne: TuringMachine = {
   initialState: "a",
   stateList: ["a", "b"],
   actionTable: [
@@ -26,7 +30,7 @@ export const repeatZeroAndOne: example = {
   ],
 };
 
-export const binaryIncrement: example = {
+export const binaryIncrement: TuringMachine = {
   initialState: "right",
   stateList: ["right", "carry", "done"],
   actionTable: [
@@ -62,7 +66,7 @@ export const binaryIncrement: example = {
   ],
 };
 
-export const binaryPalindlom: example = {
+export const binaryPalindlom: TuringMachine = {
   initialState: "start",
   stateList: [
     "start",
