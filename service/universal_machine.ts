@@ -34,8 +34,17 @@ export class UniversalTuringMachine {
     this._updateTape = updateTape;
   }
 
-  init(initialTape: string[], actionTable: ActionTable, initialState: string) {
-    this._tape = [...Array(50).fill(""), ...initialTape, ...Array(50).fill("")];
+  init(
+    initialTape: string[],
+    actionTable: ActionTable,
+    initialState: string,
+    blank: string
+  ) {
+    this._tape = [
+      ...Array(50).fill(blank),
+      ...initialTape,
+      ...Array(50).fill(blank),
+    ];
     this._actionTable = actionTable;
     this._state = initialState;
     this._idx = 50;

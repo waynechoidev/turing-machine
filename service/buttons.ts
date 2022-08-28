@@ -7,7 +7,7 @@ export async function play(utm: UniversalTuringMachine) {
   const timer = setInterval(() => {
     if (utm.checkSwitch()) utm.step();
     else clearInterval(timer);
-  }, 1000);
+  }, 700);
 }
 export function pause(utm: UniversalTuringMachine) {
   utm.turnOff();
@@ -15,10 +15,17 @@ export function pause(utm: UniversalTuringMachine) {
 export function reset(
   utm: UniversalTuringMachine,
   machine: TuringMachine,
-  input: string
+  input: string,
+  label: string
 ) {
+  const blank =
+    label === "3-State Busy Beaver" ||
+    label === "4-State Busy Beaver" ||
+    label === "Copy 1s"
+      ? "0"
+      : "";
   utm.turnOff();
-  utm.init(input.split(""), machine.actionTable, machine.initialState);
+  utm.init(input.split(""), machine.actionTable, machine.initialState, blank);
 }
 export function step(utm: UniversalTuringMachine) {
   utm.turnOff();

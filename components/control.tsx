@@ -9,9 +9,10 @@ interface IProps {
   machine: TuringMachine;
   power: boolean;
   input: string;
+  label: string;
 }
 
-export default function Control({ utm, machine, power, input }: IProps) {
+export default function Control({ utm, machine, power, input, label }: IProps) {
   return (
     <section className={styles.container}>
       <button
@@ -37,7 +38,7 @@ export default function Control({ utm, machine, power, input }: IProps) {
       </button>
       <button
         onClick={async () => {
-          buttons.reset(utm, machine, input);
+          buttons.reset(utm, machine, input, label);
         }}
       >
         Reset ↺
