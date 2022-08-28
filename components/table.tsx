@@ -17,7 +17,7 @@ export default function Table({ machine }: IProps) {
           <span>Write</span>
           <span>Move</span>
           <span>New State</span>
-          <span>Comment</span>
+          {/* <span>Comment</span> */}
         </div>
         <hr />
         {machine.actionTable?.map((i, key) => (
@@ -28,7 +28,7 @@ export default function Table({ machine }: IProps) {
               <span>{i.write}</span>
               <span>{i.move}</span>
               <span>{i.newState}</span>
-              <span>{i.comment}</span>
+              {/* <span>{i.comment}</span> */}
             </div>
             <hr />
           </div>
