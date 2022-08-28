@@ -38,22 +38,23 @@ export default function Control({
                 play(utm);
               }
         }
+        className={power ? styles.on : styles.off}
       >
-        {power ? "Pause ||" : "Execute ▶ (F5)"}
+        {power ? "Pause ||" : "Execute ▶"}
       </button>
       <button
         onClick={async () => {
           utm.step();
         }}
       >
-        Step ↷ (F10)
+        Step ↷
       </button>
       <button
         onClick={async () => {
           reset(utm, machine, input);
         }}
       >
-        Reset ↺ (Esc)
+        Reset ↺
       </button>
     </section>
   );

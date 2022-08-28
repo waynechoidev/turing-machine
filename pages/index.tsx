@@ -22,7 +22,7 @@ const Home: NextPage = () => {
     new UniversalTuringMachine(setPower, setState, setIdx, setTape)
   );
   const [input, setInput] = useState("");
-  const [label, setLabel] = useState<machines.itemType>("Repeat Binary");
+  const [label, setLabel] = useState<machines.machines>("Repeat Binary");
   const [machine, setMachine] = useState(machines.binaryPalindlom);
 
   const slideRef = useRef<HTMLDivElement>(null);

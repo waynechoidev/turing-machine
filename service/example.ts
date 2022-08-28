@@ -4,10 +4,20 @@ export interface TuringMachine {
   stateList: string[];
   actionTable: ActionTable;
 }
-export type itemType =
-  | "Repeat Binary"
-  | "Binary Increment"
-  | "Binary Palindlom";
+
+export const machineNameList = [
+  "Repeat Binary",
+  "Binary Palindlom",
+  "Binary Copy",
+  "Binary Increment",
+  "Binary Addition",
+  "Binary Multification",
+  "3-State Busy Beaver",
+  "3-State Busy Beaver",
+  "Custom Machine",
+] as const;
+
+export type machines = typeof machineNameList[number];
 
 export const repeatZeroAndOne: TuringMachine = {
   initialState: "a",

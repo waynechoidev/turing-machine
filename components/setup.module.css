@@ -22,10 +22,21 @@
 
 .machine_option {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
+
+.machine_item {
+  margin: 0;
+  width: 50%;
+}
+
 .radio {
   margin: 0 10px;
+}
+
+.label {
+  font-size: 1rem;
 }
 
 @media (max-width: 768px) {

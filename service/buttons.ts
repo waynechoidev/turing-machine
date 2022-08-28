@@ -2,6 +2,7 @@ import { TuringMachine } from "./example";
 import { UniversalTuringMachine } from "./universal_machine";
 
 export async function play(utm: UniversalTuringMachine) {
+  utm.step();
   utm.turnOn();
   const timer = setInterval(() => {
     if (utm.checkSwitch()) utm.step();
