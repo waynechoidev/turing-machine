@@ -1,6 +1,6 @@
 # Turing Machine Simulator
 
-[https://turing-machine-simulator.netlify.app/](https://turing-machine-simulator.netlify.app/)
+[https://waynechoidev.github.io/turing-machine/](https://waynechoidev.github.io/turing-machine/)
 
 Built with React, and TypeScript.
 
