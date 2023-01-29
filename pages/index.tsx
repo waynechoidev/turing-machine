@@ -105,7 +105,7 @@ const Home: NextPage = () => {
       <Table machine={machine} />
 
       <footer className={styles.footer}>
-        (C) {date.getFullYear()}. radicalDilettante. All rights reserved.
+        (C) {date.getFullYear()}. Wayne Choi. All rights reserved.
       </footer>
     </div>
   );
