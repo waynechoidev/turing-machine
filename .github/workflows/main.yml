@@ -16,12 +16,12 @@ jobs:
       - name: Install and Build
         uses: actions/setup-node@v3
       - run: npm install
+      - run: cp READEME.md public/.READEME.md
       - run: npm run build
         env:
           CI: true
           DEPLOY_TARGET: gh-pages
       - run: touch out/.nojekyll
-      - run: cp READEME.md out/.READEME.md
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
