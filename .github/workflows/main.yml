@@ -21,6 +21,7 @@ jobs:
           CI: true
           DEPLOY_TARGET: gh-pages
       - run: touch out/.nojekyll
+      - run: cp READEME.md out/.READEME.md
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
